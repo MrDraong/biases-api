@@ -2,7 +2,7 @@ require("dotenv").config();
 import cors from "cors";
 import express from "express";
 
-import companyRoutes from "~/routes/companyRoutes";
+import countryRoutes from "~/routes/countryRoutes";
 import { errorHandler } from "~/middlewares/errorHandler";
 
 const app = express();
@@ -20,7 +20,7 @@ app.use(cors());
 /**
  * Entrypoints de l'API
  */
-app.use("/company", companyRoutes);
+app.use("/country", countryRoutes);
 app.get("/", (req, res) => res.send("Bienvenu sur l'API"));
 
 /**
