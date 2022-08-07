@@ -1,3 +1,4 @@
+import { sequelize } from "~/config/dbconfig";
 import { Country } from "~/databases/models/country";
 
 export class CountryController {
@@ -7,9 +8,11 @@ export class CountryController {
    * @param res
    * @returns
    */
-  static async getCountry(req: any, res: any) {
+  static async getRandomCountry(req: any, res: any) {
     try {
-      return res.status(200).json(await Country.findAll());
+      return res
+        .status(200)
+        .json(await Country.findOne({ order: sequelize.random() }));
     } catch (error) {
       console.log(error);
 

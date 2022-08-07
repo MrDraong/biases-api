@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize-typescript";
 import { Country } from "~/databases/models/country";
+import { Biases } from "~/databases/models/biases";
 
 const sequelize = new Sequelize({
   dialect: "postgres",
@@ -8,7 +9,7 @@ const sequelize = new Sequelize({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   logging: false,
-  models: [Country],
+  models: [Country, Biases],
 });
 
 export { sequelize };
